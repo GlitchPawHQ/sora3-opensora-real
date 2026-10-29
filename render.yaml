@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sora3-opensora-real
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: GENERATION_ENABLED
+        value: "false"
+      - key: OUTPUT_DIR
+        value: /app/outputs
+      - key: OPENSORA_REPO
+        value: /workspace/Open-Sora
+      - key: OPENSORA_CONFIG
+        value: configs/diffusion/inference/256px.py
+      - key: OPENSORA_NPROC
+        value: "1"
